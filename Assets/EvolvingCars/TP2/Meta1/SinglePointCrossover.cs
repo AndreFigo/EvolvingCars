@@ -10,9 +10,9 @@ namespace GeneticSharp.Runner.UnityApp.Commons
 {
     public class SinglePointCrossover : ICrossover
     {
-  
 
-        
+
+
 
         public int ParentsNumber { get; private set; }
 
@@ -46,11 +46,25 @@ namespace GeneticSharp.Runner.UnityApp.Commons
             IChromosome offspring2 = parent2.CreateNew();
 
             //YOUR CODE HERE
+            int i = 0;
+            if (RandomizationProvider.Current.GetDouble() <= crossoverProbability)
+            {
+                var cutPoint = RandomizationProvider.Current.GetInt(1, parent1.Length);
+                while (i < cutPoint)
+                {
+                    offspring1.ReplaceGene(i, parent2.GetGene(i));
+                    offspring2.ReplaceGene(i, parent1.GetGene(i));
+                    i++;
+                }
+            }
+
+            //end of pseudo code
+
 
 
 
             return new List<IChromosome> { offspring1, offspring2 };
-            
+
         }
     }
 }

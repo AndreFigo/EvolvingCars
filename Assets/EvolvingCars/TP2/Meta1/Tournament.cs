@@ -25,6 +25,7 @@ public class Tournament : SelectionBase
     protected override IList<IChromosome> PerformSelectChromosomes(int number, Generation generation)
     {
 
+        //YOUR CODE HERE
         IList<CarChromosome> population = generation.Chromosomes.Cast<CarChromosome>().ToList(); // Current Population: We will select individuals from here 
         IList<IChromosome> parents = new List<IChromosome>(); //List that will return the individuals that will mate, i.e. that will undergo variation
         for (int i = 0; i < number; i++)
@@ -43,7 +44,7 @@ public class Tournament : SelectionBase
             }
             parents.Add(winner);
         }
-        //YOUR CODE HERE
+        //end of pseudo code
         return parents;
     }
 }

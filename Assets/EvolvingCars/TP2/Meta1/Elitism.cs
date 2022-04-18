@@ -22,7 +22,7 @@ public class Elitism : ReinsertionBase
         for (int i = 0; i < eliteSize; i++)
             offspring[i] = old_population[i];
 
-
+        //end of pseudo code
         return offspring;
     }
 

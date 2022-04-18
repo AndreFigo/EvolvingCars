@@ -18,7 +18,24 @@ public class SinglePointMutation : IMutation
     public void Mutate(IChromosome chromosome, float probability)
     {
         //YOUR CODE HERE
-        
+
+        int i = 0;
+        while (i < chromosome.Length)
+        {
+
+            if (RandomizationProvider.Current.GetDouble() <= probability)
+            {
+                var geneValue = chromosome.GetGene(i).Value;
+                if (geneValue == 1)
+                    chromosome.ReplaceGene(i, new Gene(0));
+                else
+                    chromosome.ReplaceGene(i, new Gene(1));
+
+                i++;
+            }
+        }
+
+        //end of pseudo code
     }
 
 }
