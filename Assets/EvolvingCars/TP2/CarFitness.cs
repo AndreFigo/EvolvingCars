@@ -49,7 +49,7 @@ namespace GeneticSharp.Runner.UnityApp.Car
                 int IsRoadComplete = c.IsRoadComplete ? 1 : 0;
 
 
-                fitness = MaxDistance + MaxVelocity;
+                fitness = MaxDistance / 200 + NumberOfWheels / 15 + MaxVelocity / 10 + IsRoadComplete * 10;
                 c.Fitness = fitness;
 
             } while (!c.Evaluated);
