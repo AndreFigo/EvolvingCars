@@ -47,9 +47,17 @@ namespace GeneticSharp.Runner.UnityApp.Car
                 float NumberOfWheels = c.NumberOfWheels;
                 float CarMass = c.CarMass;
                 int IsRoadComplete = c.IsRoadComplete ? 1 : 0;
-
-
-                fitness = MaxDistance + MaxVelocity;
+                float nw = (NumberOfWheels > 2 ? 3 : 0);
+                fitness = MaxDistance;
+                // fitness = (MaxDistance/50 + MaxVelocity / 5 + IsRoadComplete*100 + nw)/ CarMass;
+                /* FITNESS FUNCTION HERE!!!
+                 * if (MaxDistance > 670)  fitness = 0;
+                // else if (NumberOfWheels > 4 || CarMass > 400)  fitness = 0;
+                // else fitness = MaxDistance + 2500 * NumberOfWheels/ CarMass; 
+                */
+                // MaxDistance / 50;// -CarMass/50; // + MaxVelocity / 10 + IsRoadComplete * 100;
+                // maxDistance + 2500 * NumberOfWheels/ CarMass -> the hard hill was not overcome in any of the 500 generations
+                // now changes were made to make the fitness of cars with too many wheels or too much mass be zero, even though this could harm the selection process.
                 c.Fitness = fitness;
 
             } while (!c.Evaluated);

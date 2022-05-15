@@ -26,7 +26,7 @@ public class SinglePointMutation : IMutation
             if (RandomizationProvider.Current.GetDouble() <= probability)
             {
                 var geneValue = chromosome.GetGene(i).Value;
-                if (geneValue == 1)
+                if ((int)geneValue == 1)
                     chromosome.ReplaceGene(i, new Gene(0));
                 else
                     chromosome.ReplaceGene(i, new Gene(1));

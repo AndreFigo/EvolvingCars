@@ -36,7 +36,7 @@ public abstract class SampleControllerBase : MonoBehaviour {
             : sampleArea.GetComponent<RectTransform>().rect;
 
         var generationTextGO = GameObject.Find("CurrentInfo/Background/GenerationText");
-
+        // Time.timeScale = 10;
         if (generationTextGO != null)
         {
             var fitnessTextGO = GameObject.Find("CurrentInfo/Background/FitnessText");
@@ -170,12 +170,12 @@ public abstract class SampleControllerBase : MonoBehaviour {
 
         var best = GA.BestChromosome as CarChromosome;
         string pathToFile = this.folderName + "/" +this.newFileName;
-        string generationInfo = $"{GA.GenerationsNumber},{m_previousBestFitness},{m_previousAverageFitness},{best.MaxDistance},{best.MaxDistanceTime},{best.NumberOfWheels},{best.CarMass},{best.IsRoadComplete}" + Environment.NewLine;
+        string generationInfo = $"{GA.GenerationsNumber}|{m_previousBestFitness}|{m_previousAverageFitness}|{best.MaxDistance}|{best.MaxDistanceTime}|{best.NumberOfWheels}|{best.CarMass}|{best.IsRoadComplete}" + Environment.NewLine;
 
 
         if (!File.Exists(pathToFile))
         {
-            string header = "Generation,BestFitness,AverageFitnessPopulation,BestMaxDistance,BestMaxDistanceTime,BestNumberOfWheels,BestCarMass,BestIsRoadComplete" + Environment.NewLine;
+            string header = "Generation|BestFitness|AverageFitnessPopulation|BestMaxDistance|BestMaxDistanceTime|BestNumberOfWheels|BestCarMass|BestIsRoadComplete" + Environment.NewLine;
             Debug.Log(header);
 
             File.WriteAllText(pathToFile, header);

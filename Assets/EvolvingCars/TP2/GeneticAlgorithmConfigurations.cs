@@ -11,11 +11,11 @@ public static class GeneticAlgorithmConfigurations
     * Configuration of the algorithm: You should change the configurations of the algorithm here
     */
 
-    public static float crossoverProbability = 0.9f; 
-    public static float mutationProbability = 0.3f;
-    public static int tournamentSize = 5;  
-    public static int maximumNumberOfGenerations = 30; 
+    public static float mutationProbability = 0.2f;
     public static int eliteSize = 2; 
+    public static int tournamentSize = 5;  
+    public static float crossoverProbability = 0.9f; 
+    public static int maximumNumberOfGenerations = 500; 
 
     public static SinglePointCrossover crossoverOperator = new SinglePointCrossover(crossoverProbability);
     public static SinglePointMutation mutationOperator = new SinglePointMutation();
