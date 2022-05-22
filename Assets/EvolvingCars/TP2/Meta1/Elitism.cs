@@ -5,7 +5,11 @@ using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Populations;
 using GeneticSharp.Domain.Reinsertions;
 
-
+/*
+    AIF Project 2
+    André Carvalho, no.2019216156
+    Paulo Cortesão, no.2019216517
+*/
 public class Elitism : ReinsertionBase
 {
     protected int eliteSize = 2;
@@ -21,8 +25,8 @@ public class Elitism : ReinsertionBase
 
         for (int i = 0; i < eliteSize; i++)
             offspring[i] = old_population[i];
-
-        //end of pseudo code
+        // the *eliteSize* fittest cars will belong to the next generation without suffering changes
+        
         return offspring;
     }
 

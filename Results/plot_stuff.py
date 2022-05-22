@@ -31,7 +31,7 @@ if __name__ == "__main__":
     cols = [[1, 2], [3, 4]]
 
     plt.figure()
-    plt.suptitle("Fitness and Distance (normalized)")
+    plt.suptitle(f"Experiment {no_exp}:Fitness and Distance (normalized)")
     for i in range(len(cols)):
         plt.subplot(2, 1, i + 1)
         # plt.title(titles[i])
@@ -45,5 +45,14 @@ if __name__ == "__main__":
             plt.plot(mn, color=colors[i][j], marker=".", label=labels[i][j])
         plt.legend()
         plt.show(block=False)
+    bmd = exp_data[:, :, 3].mean(axis=0)
+    delta = bmd[1:] - bmd[0:-1]
+    # print("bmd shape:", bmd.shape)
+    # print("bmd: ", bmd)
+    # print("delta shape:", delta.shape)
+    # print("delta: ", delta)
+
+    print(f"Experiment {no_exp}: delta mean {np.mean(delta)} and std {np.std(delta)}")
 
     plt.savefig(f"exp{no_exp}.png")
+    input()

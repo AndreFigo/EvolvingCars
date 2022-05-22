@@ -7,6 +7,11 @@ using System.Collections.Concurrent;
 using System;
 using System.Linq;
 
+/*
+    AIF Project 2
+    André Carvalho, no.2019216156
+    Paulo Cortesão, no.2019216517
+*/
 namespace GeneticSharp.Runner.UnityApp.Car
 {
     public class CarFitness : IFitness
@@ -48,12 +53,15 @@ namespace GeneticSharp.Runner.UnityApp.Car
                 float CarMass = c.CarMass;
                 int IsRoadComplete = c.IsRoadComplete ? 1 : 0;
                 float nw = (NumberOfWheels > 2 ? 3 : 0);
-                fitness = MaxDistance;
+                fitness = MaxDistance / 4 + MaxVelocity/1.5f;
+                if (CarMass < 300) fitness += 10;
+                if (MaxDistance > 370) fitness = -100;
+                if (MaxDistance > 250) fitness *= 2;
                 // fitness = (MaxDistance/50 + MaxVelocity / 5 + IsRoadComplete*100 + nw)/ CarMass;
                 /* FITNESS FUNCTION HERE!!!
                  * if (MaxDistance > 670)  fitness = 0;
-                // else if (NumberOfWheels > 4 || CarMass > 400)  fitness = 0;
-                // else fitness = MaxDistance + 2500 * NumberOfWheels/ CarMass; 
+                 else if (NumberOfWheels > 4 || CarMass > 400)  fitness = 0;
+                 else fitness = MaxDistance + 2500 * NumberOfWheels/ CarMass; 
                 */
                 // MaxDistance / 50;// -CarMass/50; // + MaxVelocity / 10 + IsRoadComplete * 100;
                 // maxDistance + 2500 * NumberOfWheels/ CarMass -> the hard hill was not overcome in any of the 500 generations

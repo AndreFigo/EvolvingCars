@@ -8,6 +8,11 @@ using GeneticSharp.Domain.Selections;
 using GeneticSharp.Infrastructure.Framework.Texts;
 using GeneticSharp.Runner.UnityApp.Car;
 
+/*
+    AIF Project 2
+    André Carvalho, no.2019216156
+    Paulo Cortesão, no.2019216517
+*/
 public class Tournament : SelectionBase
 {
     protected int Size { get; set; }
@@ -30,11 +35,11 @@ public class Tournament : SelectionBase
         IList<IChromosome> parents = new List<IChromosome>(); //List that will return the individuals that will mate, i.e. that will undergo variation
         for (int i = 0; i < number; i++)
         {
-            var randomIndexes = RandomizationProvider.Current.GetUniqueInts(Size, 0, population.Count);
+            var randomIndexes = RandomizationProvider.Current.GetUniqueInts(Size, 0, population.Count); // get a pool of Size individuals
             CarChromosome winner = null;
             double winnerFitness = -1.0;
             for (int k = 0; k < Size; k++)
-            {
+            { // choose the best individual and add it to the parents of the next generation
                 int individualIndex = randomIndexes[k];
                 if (winner == null || population[individualIndex].Fitness > winnerFitness)
                 {

@@ -36,7 +36,7 @@ public abstract class SampleControllerBase : MonoBehaviour {
             : sampleArea.GetComponent<RectTransform>().rect;
 
         var generationTextGO = GameObject.Find("CurrentInfo/Background/GenerationText");
-        // Time.timeScale = 10;
+        Time.timeScale = 10;
         if (generationTextGO != null)
         {
             var fitnessTextGO = GameObject.Find("CurrentInfo/Background/FitnessText");

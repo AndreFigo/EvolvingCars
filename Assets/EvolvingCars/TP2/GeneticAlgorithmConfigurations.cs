@@ -4,14 +4,19 @@ using GeneticSharp.Runner.UnityApp.Car;
 using GeneticSharp.Runner.UnityApp.Commons;
 using UnityEngine;
 
+/*
+    AIF Project 2
+    André Carvalho, no.2019216156
+    Paulo Cortesão, no.2019216517
+*/
 public static class GeneticAlgorithmConfigurations
 {
     /* YOUR CODE HERE:
     * 
     * Configuration of the algorithm: You should change the configurations of the algorithm here
     */
-
-    public static float mutationProbability = 0.2f;
+    // parameter tuning was performed here
+    public static float mutationProbability = 0.3f;
     public static int eliteSize = 2; 
     public static int tournamentSize = 5;  
     public static float crossoverProbability = 0.9f; 

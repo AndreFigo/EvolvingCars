@@ -6,6 +6,12 @@ using GeneticSharp.Domain.Randomizations;
 using System.Collections.Generic;
 using GeneticSharp.Domain.Crossovers;
 
+/*
+    AIF Project 2
+    André Carvalho, no.2019216156
+    Paulo Cortesão, no.2019216517
+*/
+
 namespace GeneticSharp.Runner.UnityApp.Commons
 {
     public class SinglePointCrossover : ICrossover
@@ -47,12 +53,12 @@ namespace GeneticSharp.Runner.UnityApp.Commons
 
             //YOUR CODE HERE
             int i = 0;
-            if (RandomizationProvider.Current.GetDouble() <= crossoverProbability)
+            if (RandomizationProvider.Current.GetDouble() <= crossoverProbability) // with probability crossoverProbability, perform crossover
             {
-                var cutPoint = RandomizationProvider.Current.GetInt(1, parent1.Length);
+                var cutPoint = RandomizationProvider.Current.GetInt(1, parent1.Length); // determine the cut point
                 while (i < cutPoint)
                 {
-                    offspring1.ReplaceGene(i, parent2.GetGene(i));
+                    offspring1.ReplaceGene(i, parent2.GetGene(i)); // replace the genes in the offspring
                     offspring2.ReplaceGene(i, parent1.GetGene(i));
                     i++;
                 }
